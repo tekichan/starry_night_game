@@ -1,0 +1,74 @@
+body {
+    margin: 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: Helvetica, Arial, Sans-Serif;
+    background-color: #ffffff;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+}
+#artpaintingContainer {
+/*background-color: red;*/
+    z-index: 10;
+    position: absolute; 
+    max-height: calc(100vh - 160px);
+    max-width: 100vw;
+    left: 50%;
+    top: 50%;
+    margin-top: -76px;
+    transform: translate(-50%, -50%); 
+}
+#jeeFaceFilterCanvas {
+}
+.artPainting  {
+    z-index: 8;
+    top: 4px;
+    left: 0px;
+    max-width: 100vw;
+    max-height:  calc(100vh - 160px);
+}
+.canvasDetected { /*style of the canvas when user face is detected*/
+    position: absolute;
+    z-index: -1;
+}
+.canvasNotDetected { /*style of the canvas when user face is lost */
+    z-index: 11;
+    position: absolute;
+    top: auto !important;
+    bottom: 0px !important;
+    left: 0px !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+}
+
+#buttonContainer {
+    z-index: 20;
+    position: absolute;
+    max-width: 100vw;
+    bottom: 0px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color:	#e5d0b2;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #e5d0b2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a.active {
+    background-color: 	#e5d0b2;
+    color: white;
+}
+  
