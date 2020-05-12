@@ -62,6 +62,8 @@ export default class StarryNightGameScene extends Phaser.Scene{
         this.scoreText = this.add.text(10, 10, '');
         this.updateScore(this.score);
 
+        let audioContext = new ((window).AudioContext || (window).webkitAudioContext)();
+        this.sound.setAudioContext(audioContext);
         this.moonlight_p2 = this.sound.add('moonlight_p2', { volume: 0.5, loop: true });
         this.moonlight_p2.play();
     }

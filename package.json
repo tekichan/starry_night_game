@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Starry Night",
   "priate": true,
-  "homepage": "https://tekichan.github.io/starry-night-game",
+  "homepage": "https://tekichan.github.io/starry_night_game",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",

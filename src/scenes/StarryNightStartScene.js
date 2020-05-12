@@ -53,6 +53,8 @@ export default class StarryNightStartScene extends Phaser.Scene{
         this.cameraLabel = this.add.text(cameraButtonX, 300, 'Camera', {color: '#FDFD96'});
         this.cameraLabel.setPosition(this.cameraLabel.x - this.cameraLabel.width / 2, this.cameraLabel.y);
 
+        let audioContext = new ((window).AudioContext || (window).webkitAudioContext)();
+        this.sound.setAudioContext(audioContext);
         this.moonlight_p1 = this.sound.add('moonlight_p1', { volume: 0.5, loop: true });
         this.moonlight_p1.play();
     }

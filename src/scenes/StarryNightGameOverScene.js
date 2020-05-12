@@ -32,6 +32,8 @@ export default class StarryNightGameOverScene extends Phaser.Scene{
         this.gameOverButton.setScale(this.cameras.main.width/this.gameOverButton.width * 0.5).setScrollFactor(0);         
         this.input.on('pointerdown', this.resetGame, this);
 
+        let audioContext = new ((window).AudioContext || (window).webkitAudioContext)();
+        this.sound.setAudioContext(audioContext);
         this.moonlight_p3 = this.sound.add('moonlight_p3', { volume: 0.5, loop: true });
         this.moonlight_p3.play();
     }
