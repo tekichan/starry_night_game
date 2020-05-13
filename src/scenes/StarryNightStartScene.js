@@ -8,6 +8,8 @@ import image_start_button from '../images/start_button.png';
 import image_camera_button from '../images/camera_button.png';
 import image_sound_on_button from '../images/sound_on_button.png';
 import image_sound_off_button from '../images/sound_off_button.png';
+import image_detail_button from '../images/detail_button.png';
+
 import audio_moonlight_p1 from '../audio/moonlight_part1.mp3';
 
 /**
@@ -35,6 +37,8 @@ export default class StarryNightStartScene extends Phaser.Scene{
         this.load.image('camera_button', image_camera_button);
         this.load.image('sound_on_button', image_sound_on_button);
         this.load.image('sound_off_button', image_sound_off_button);
+        this.load.image('detail_button', image_detail_button);
+
         this.load.audio('moonlight_p1', audio_moonlight_p1);
 
         this.is_sound_on = false;
@@ -75,6 +79,14 @@ export default class StarryNightStartScene extends Phaser.Scene{
         this.soundButton.setScale(this.cameras.main.width/this.soundButton.width * 0.125).setScrollFactor(0);         
         this.soundButton.on('pointerdown', this.toggleSound, this);
 
+        this.detailButton = this.add.tileSprite(
+                                this.game.config.width * 0.75
+                                , this.game.config.height * 0.9, 0, 0
+                                , 'detail_button'
+                            ).setInteractive();
+        this.detailButton.setScale(this.cameras.main.width/this.detailButton.width * 0.125).setScrollFactor(0);         
+        this.detailButton.on('pointerdown', this.showDetail, this);
+
         let audioContext = new ((window).AudioContext || (window).webkitAudioContext)();
         this.sound.setAudioContext(audioContext);
         this.moonlight_p1 = this.sound.add('moonlight_p1', { volume: 0.5, loop: true });
@@ -112,5 +124,13 @@ export default class StarryNightStartScene extends Phaser.Scene{
             this.soundButton.setTexture('sound_on_button');
         }
         this.is_sound_on = !this.is_sound_on;
+    }
+
+    /**
+     * Show Detail
+     */
+    showDetail() {
+        this.moonlight_p1.stop();
+        window.location = 'https://github.com/tekichan/starry_night_game';
     }
 }

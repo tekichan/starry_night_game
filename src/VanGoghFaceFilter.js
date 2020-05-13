@@ -1,6 +1,8 @@
 import JEEFACEFILTERAPI from './vendors/jeelizFaceFilter/dist/jeelizFaceFilterES6';
 import NNC_JSON from './vendors/jeelizFaceFilter/dist/NNC.json';
 
+import image_picture_frame from './images/picture_frame.png';
+
 /**
  * possible states of the app. ENUM equivalent
  */
@@ -126,6 +128,9 @@ export default class VanGoghFaceFilter {
 
         this.STATE = STATES.IDLE;
         this.ISUSERFACEDETECTED = false;
+
+        this.picture_frame_image = new Image();
+        this.picture_frame_image.src = image_picture_frame;
     }
 
     /**
@@ -809,7 +814,6 @@ export default class VanGoghFaceFilter {
      */
     saveImage(_event) {
         let ARTPAINTING = this.ARTPAINTING;
-        let SETTINGS = this.SETTINGS;
 
         // compute topPx an leftPx in the artpainting canvas image ref:
         let topPx = ARTPAINTING.image.height * ARTPAINTING.positionFace[1];
@@ -821,17 +825,18 @@ export default class VanGoghFaceFilter {
         leftPx -= widthFacePx / 2;
         
         let final_canvas = document.createElement("canvas");
-        final_canvas.width = 1300;
-        final_canvas.height = 1600;
+        final_canvas.width = 1600;
+        final_canvas.height = 1900;
         let ctx = final_canvas.getContext("2d");
         ctx.drawImage(
             document.getElementById(this.faceCanvasId)
-            , leftPx
-            , topPx
+            , leftPx + 150
+            , topPx + 150
             , widthFacePx * 3.85
             , heightFacePx * 3.3
         );
-        ctx.drawImage(document.getElementsByClassName('artPainting')[0], 0, 0);
+        ctx.drawImage(document.getElementsByClassName('artPainting')[0], 150, 150);
+        ctx.drawImage(this.picture_frame_image, 0, 0);
         
         final_canvas.toBlob((blob) => {
             let URLObj = window.URL || window.webkitURL;

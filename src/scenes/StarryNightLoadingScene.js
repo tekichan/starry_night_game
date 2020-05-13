@@ -10,6 +10,7 @@ import image_moon_lose from '../images/mr_moon_lose.png';
 import image_gameover_button from '../images/game_over.png';
 import image_sound_on_button from '../images/sound_on_button.png';
 import image_sound_off_button from '../images/sound_off_button.png';
+import image_detail_button from '../images/detail_button.png';
 import audio_moonlight_p1 from '../audio/moonlight_part1.mp3';
 import audio_moonlight_p2 from '../audio/moonlight_part2.mp3';
 import audio_moonlight_p3 from '../audio/moonlight_part3.mp3';
@@ -81,6 +82,7 @@ export default class StarryNightLoadingScene extends Phaser.Scene{
         this.load.image('moon_lose', image_moon_lose);
         this.load.image('cloud', image_cloud);
         this.load.image('gameover_button', image_gameover_button);
+        this.load.image('detail_button', image_detail_button);
         this.load.audio('moonlight_p1', audio_moonlight_p1);
         this.load.audio('moonlight_p2', audio_moonlight_p2);
         this.load.audio('moonlight_p3', audio_moonlight_p3);                        

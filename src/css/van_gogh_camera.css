@@ -9,7 +9,6 @@ body {
     background-size: contain;
 }
 #artpaintingContainer {
-/*background-color: red;*/
     z-index: 10;
     position: absolute; 
     max-height: calc(100vh - 160px);
@@ -46,7 +45,7 @@ body {
     z-index: 20;
     position: absolute;
     max-width: 100vw;
-    width: 100%;
+    width: 100vw;
     bottom: 0px;
 }
 
@@ -55,7 +54,7 @@ body {
     background-color:	#e5d0b2;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
 }
 
 .navbar a {
