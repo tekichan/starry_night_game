@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server",
     "build": "webpack",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "doc": "documentation build src/** -f md -o docs/jsdocs.md"
   },
   "keywords": [],
   "author": "Teki Chan <tekichan@gmail.com>",

@@ -1,33 +1,50 @@
+/**
+ * Starry Night Game JS: Start Scene
+ * @author  Teki Chan
+ * @since   13 May 2020
+ */
 import Phaser from 'phaser';
+
+import { STARRY_NIGHT_SETTINGS } from './StarryNightSettings';
 
 import image_night_bg from '../images/starry_night.png';
 import image_starry_night_title from '../images/starry_night_title.png';
 import image_start_button from '../images/start_button.png';
 import image_camera_button from '../images/camera_button.png';
+import image_sound_on_button from '../images/sound_on_button.png';
+import image_sound_off_button from '../images/sound_off_button.png';
 import audio_moonlight_p1 from '../audio/moonlight_part1.mp3';
-
-const gameOptions = {
-    // horizontal Moon speed
-    moonSpeed: 125,
-}
 
 /**
  * The starting class of this game's scene
+ * @extends Phaser.Scene
+ * @author  Teki Chan
  */
 export default class StarryNightStartScene extends Phaser.Scene{
-    // Phaser.Scene object onstructor
+    /**
+     * @inheritdoc
+     */
     constructor(){
         super('StartGame');
+        this.is_sound_on = false;
     }
-    // Default: Before the game is loaded
+    /**
+     * @inheritdoc
+     */
     preload(){
         this.load.image('night_bg', image_night_bg);
         this.load.image('starry_night_title', image_starry_night_title);
         this.load.image('start_button', image_start_button);
         this.load.image('camera_button', image_camera_button);
+        this.load.image('sound_on_button', image_sound_on_button);
+        this.load.image('sound_off_button', image_sound_off_button);
         this.load.audio('moonlight_p1', audio_moonlight_p1);
+
+        this.is_sound_on = false;
     }
-    // Default: When the game is created
+    /**
+     * @inheritdoc
+     */
     create(){
         this.nightBg = this.add.tileSprite(this.game.config.width / 2,this.game.config.height / 2,0,0, 'night_bg');
         this.nightBg.setScale(this.cameras.main.height/this.nightBg.height).setScrollFactor(0);
@@ -53,23 +70,50 @@ export default class StarryNightStartScene extends Phaser.Scene{
         this.cameraLabel = this.add.text(cameraButtonX, 300, 'Camera', {color: '#FDFD96'});
         this.cameraLabel.setPosition(this.cameraLabel.x - this.cameraLabel.width / 2, this.cameraLabel.y);
 
+        this.soundButton = this.add.tileSprite(
+                                this.game.config.width * 0.9
+                                , this.game.config.height * 0.9, 0, 0
+                                , 'sound_off_button'
+                            ).setInteractive();
+        this.soundButton.setScale(this.cameras.main.width/this.soundButton.width * 0.125).setScrollFactor(0);         
+        this.soundButton.on('pointerdown', this.toggleSound, this);
+
         let audioContext = new ((window).AudioContext || (window).webkitAudioContext)();
         this.sound.setAudioContext(audioContext);
         this.moonlight_p1 = this.sound.add('moonlight_p1', { volume: 0.5, loop: true });
-        this.moonlight_p1.play();
     }
-    // Default: Update the game
+    /**
+     * @inheritdoc
+     */
     update(){
-        this.nightBg.tilePositionX -= -gameOptions.moonSpeed/200;        
+        this.nightBg.tilePositionX -= -STARRY_NIGHT_SETTINGS.moonSpeed/200;        
     }
-    // Start the game
+    /**
+     * Start to enter the game and play
+     */
     startGame() {
         this.scene.start('PlayGame');
         this.moonlight_p1.stop();
     }
-    // Turn to Camera page
+    /**
+     * Turn to Camera Screen
+     */
     cameraGame() {
         this.moonlight_p1.stop();
         window.location = './camera.html';
-    }    
+    }
+
+    /**
+     * Toggle Sound on or off
+     */
+    toggleSound() {
+        if (this.is_sound_on) {
+            this.moonlight_p1.stop();
+            this.soundButton.setTexture('sound_off_button');
+        } else {
+            this.moonlight_p1.play();
+            this.soundButton.setTexture('sound_on_button');
+        }
+        this.is_sound_on = !this.is_sound_on;
+    }
 }

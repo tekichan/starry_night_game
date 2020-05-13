@@ -1,7 +1,16 @@
+/**
+ * Van Gogh Face Filter JS
+ * @author  Teki Chan
+ * @since   13 May 2020
+ */
+
 import JEEFACEFILTERAPI from './vendors/jeelizFaceFilter/dist/jeelizFaceFilterES6';
 import NNC_JSON from './vendors/jeelizFaceFilter/dist/NNC.json';
 
-export const STATES = { //possible states of the app. ENUM equivalent
+/**
+ * possible states of the app. ENUM equivalent
+ */
+export const STATES = { 
     ERROR: -1,
     IDLE: 0,
     LOADING: 1,
@@ -11,7 +20,13 @@ export const STATES = { //possible states of the app. ENUM equivalent
     ARTPAINTINGFACEDETECTPROVIDED: 5
 };
 
-// compile a shader:
+/**
+ * compile a shader
+ * @param {*} GL    the WebGL context
+ * @param {*} source 
+ * @param {*} type 
+ * @param {*} typeString 
+ */
 const compile_shader = (GL, source, type, typeString) => {
     const shader = GL.createShader(type);
     GL.shaderSource(shader, source);
@@ -24,7 +39,13 @@ const compile_shader = (GL, source, type, typeString) => {
     return shader;
 };
 
-// draw in search mode:
+/**
+ * draw in search mode
+ * @param {*} GL    the WebGL context
+ * @param {*} FFSPECS   
+ * @param {*} SHPS 
+ * @param {*} detectState 
+ */
 const draw_search = (GL, FFSPECS, SHPS, detectState) => {
     GL.useProgram(SHPS.search.program);
     GL.viewport(0, 0, FFSPECS.canvasElement.width, FFSPECS.canvasElement.height);
@@ -33,9 +54,15 @@ const draw_search = (GL, FFSPECS, SHPS, detectState) => {
     GL.activeTexture(GL.TEXTURE0);
     GL.bindTexture(GL.TEXTURE_2D, FFSPECS.videoTexture);
     GL.drawElements(GL.TRIANGLES, 3, GL.UNSIGNED_SHORT, 0);
-}
+};
 
-// helper function to build the shader program:
+/**
+ * helper function to build the shader program
+ * @param {*} GL    the WebGL context
+ * @param {*} shaderVertexSource    Shader Vertex Source
+ * @param {*} shaderFragmentSource  Shader Fragment Source
+ * @param {*} id    Shader Source ID
+ */
 const build_shaderProgram = (GL, shaderVertexSource, shaderFragmentSource, id) => {
     // compile both shader separately:
     const shaderVertex = compile_shader(GL, shaderVertexSource, GL.VERTEX_SHADER, "VERTEX " + id);
@@ -51,9 +78,24 @@ const build_shaderProgram = (GL, shaderVertexSource, shaderFragmentSource, id) =
     GL.enableVertexAttribArray(aPos);
 
     return shaderProgram;
-}; //end build_shaderProgram()
+};
 
+/**
+ * Van Gogh Face Filter
+ * <br>Logics for processing human and painting faces.
+ * <br>Acknowledgement of Jeeliz Face Filter Demo
+ * @see https://jeeliz.com/
+ * @see https://github.com/jeeliz/jeelizFaceFilter
+ * @see https://github.com/jeeliz/jeelizFaceFilter/tree/master/demos/faceReplacement/image
+ */
 export default class VanGoghFaceFilter {
+    /**
+     * constructor
+     * @param {*} settings      Face detection setting
+     * @param {*} artPainting   Painting setting
+     * @param {*} doMartPaintingContainer   Container ID of Painting
+     * @param {*} faceCanvasId  Canvas ID of Face
+     */
     constructor(
         settings
         , artPainting
@@ -69,7 +111,8 @@ export default class VanGoghFaceFilter {
             hueTexture: null,
         };
         
-        this.SHPS = { //shaderprograms
+        //shaderprograms
+        this.SHPS = {
             cropUserFace: null,
             copy: null
         };
@@ -89,6 +132,10 @@ export default class VanGoghFaceFilter {
         this.ISUSERFACEDETECTED = false;
     }
 
+    /**
+     * Check if label is loaded
+     * @param {*} label Label
+     */
     check_isLoaded(label) {
         console.log('INFO in check_isLoaded(): ', label, 'is loaded');
         if (++(this.NLOADEDS) === 2) {
@@ -96,6 +143,9 @@ export default class VanGoghFaceFilter {
         }
     }
 
+    /**
+     * Main program of this class
+     */
     main() {
         let ARTPAINTING = this.ARTPAINTING;
         let SETTINGS = this.SETTINGS;
@@ -136,6 +186,9 @@ export default class VanGoghFaceFilter {
         }); //end JEEFACEFILTERAPI.init
     }
     
+    /**
+     * Start to run the program
+     */
     start() {
         console.log('INFO: start()');
     
@@ -146,7 +199,11 @@ export default class VanGoghFaceFilter {
         this.update_artPainting(this.SETTINGS.detectState);
     } //end start()
 
-    update_artPainting(detectState) { //called both at start (start()) and when user change the art painting
+    /**
+     * called both at start (start()) and when user change the art painting
+     * @param {*} detectState   Detection state
+     */
+    update_artPainting(detectState) {
         let FFSPECS = this.FFSPECS;
         let ARTPAINTING = this.ARTPAINTING;
         let GL = this.GL;
@@ -186,6 +243,9 @@ export default class VanGoghFaceFilter {
         }
     } //end update_artPainting()
 
+    /**
+     * Create Textures
+     */
     create_textures() {
         let GL = this.GL;
         let SETTINGS = this.SETTINGS;
@@ -223,6 +283,11 @@ export default class VanGoghFaceFilter {
         GL.texParameteri(GL.TEXTURE_2D, GL.TEXTURE_MIN_FILTER, GL.LINEAR_MIPMAP_NEAREST);
     } //end create_textures()
     
+    /**
+     * Build mask on Painting 
+     * @param {*} detectState   Detection state
+     * @param {*} callback  Callback function
+     */
     build_artPaintingMask(detectState, callback) {
         let GL = this.GL;
         let SETTINGS = this.SETTINGS;
@@ -312,6 +377,9 @@ export default class VanGoghFaceFilter {
         callback();
     } //end build_artPaintingMask()
     
+    /**
+     * Build Shader Programs
+     */
     build_shps() {
         let GL = this.GL;
         let SETTINGS = this.SETTINGS;
@@ -532,6 +600,9 @@ export default class VanGoghFaceFilter {
         GL.uniform1i(uSamplerHueDst, 1);
     } //end build_shps()
 
+    /**
+     * Reset to Video
+     */
     reset_toVideo() {
         console.log('reset_toVideo is ready: ' + this.STATE);
 
@@ -549,12 +620,15 @@ export default class VanGoghFaceFilter {
         this.STATE = STATES.DETECTUSERFACE;
     }
     
+    /**
+     * Position User Crop Canvas
+     */
     position_userCropCanvas() {
         let FFSPECS = this.FFSPECS;
         let ARTPAINTING = this.ARTPAINTING;
         let SETTINGS = this.SETTINGS;
 
-        console.log('INFO: position_userCropCanvas()');
+        console.log('INFO: position_userCropCanvas(): ' + this.STATE);
         const restoredPosition = FFSPECS.canvasElement.style.position;
         FFSPECS.canvasElement.style.position = 'absolute';
     
@@ -587,7 +661,10 @@ export default class VanGoghFaceFilter {
     } //end position_userCropCanvas()
     
 
-    // draw final render:
+    /**
+     * draw final render
+     * @param {*} detectState   Detection state
+     */
     draw_render(detectState) {
         let GL = this.GL;
         let FFSPECS = this.FFSPECS;
@@ -642,6 +719,10 @@ export default class VanGoghFaceFilter {
         GL.drawElements(GL.TRIANGLES, 3, GL.UNSIGNED_SHORT, 0);
     }//end draw_render()
 
+    /**
+     * Callback Track
+     * @param {*} detectState   Detection state
+     */
     callbackTrack(detectState) {
         console.log('callbackTrack is called: ' + this.STATE);
 
@@ -710,6 +791,26 @@ export default class VanGoghFaceFilter {
         } //end switch(STATE)
     } //end callbackTrack
 
+    change_artPainting(imageObject, detectState) {
+        console.log('change_artPainting is called');
+
+        this.STATE = STATES.BUSY;
+        if (this.ARTPAINTING.canvasMask){
+            this.ARTPAINTING.canvasMask.parentElement.removeChild(this.ARTPAINTING.canvasMask);
+            this.ARTPAINTING.canvasMask=false;
+        }
+        this.SETTINGS.artPainting = imageObject;
+        this.SETTINGS.detectState = detectState;
+
+        this.ARTPAINTING.image=new Image();
+        this.ARTPAINTING.image.src = imageObject;
+        this.ARTPAINTING.image.onload = this.update_artPainting.bind(this, detectState);
+    }
+
+    /**
+     * Save a final image
+     * @param {*} _event    Event object
+     */
     saveImage(_event) {
         let ARTPAINTING = this.ARTPAINTING;
         let SETTINGS = this.SETTINGS;

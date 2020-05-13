@@ -61,15 +61,9 @@ body {
 .navbar a {
     float: left;
     display: block;
-    color: black;
+    color: #7a6145;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
 }
-
-.navbar a.active {
-    background-color: 	#e5d0b2;
-    color: white;
-}
-  
