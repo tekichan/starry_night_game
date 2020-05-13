@@ -2,138 +2,89 @@
 
 ### Table of Contents
 
--   [Phaser][1]
--   [Phaser][2]
--   [Phaser][3]
--   [Phaser][4]
--   [Phaser][5]
--   [StarryNightGameOverScene][6]
-    -   [preload][7]
-    -   [create][8]
-    -   [update][9]
-    -   [resetGame][10]
-    -   [toggleSound][11]
--   [StarryNightGameScene][12]
-    -   [preload][13]
-    -   [create][14]
-    -   [updateScore][15]
-        -   [Parameters][16]
-    -   [placeClouds][17]
-        -   [Parameters][18]
-    -   [flap][19]
-    -   [getRightmostCloud][20]
-    -   [update][21]
-    -   [die][22]
-    -   [toggleSound][23]
--   [SETTINGS][24]
--   [SETTINGS][25]
--   [StarryNightLoadingScene][26]
-    -   [preload][27]
-    -   [updateBar][28]
-        -   [Parameters][29]
-    -   [complete][30]
--   [STARRY_NIGHT_SETTINGS][31]
--   [StarryNightStartScene][32]
-    -   [preload][33]
-    -   [create][34]
-    -   [update][35]
-    -   [startGame][36]
-    -   [cameraGame][37]
-    -   [toggleSound][38]
--   [gameConfig][39]
--   [game][40]
--   [PAINTING_OPTIONS][41]
--   [ARTPAINTING][42]
--   [vanGoghFaceFilter][43]
--   [paintingOptionIdx][44]
--   [setupButtons][45]
--   [buildPaintingOption][46]
--   [updatePaintingOption][47]
--   [ready][48]
--   [JEEFACEFILTERAPI][49]
--   [JEEFACEFILTERAPI][50]
--   [STATES][51]
--   [compile_shader][52]
-    -   [Parameters][53]
--   [draw_search][54]
-    -   [Parameters][55]
--   [build_shaderProgram][56]
-    -   [Parameters][57]
--   [VanGoghFaceFilter][58]
-    -   [Parameters][59]
-    -   [check_isLoaded][60]
+-   [StarryNightGameOverScene][1]
+    -   [preload][2]
+    -   [create][3]
+    -   [update][4]
+    -   [resetGame][5]
+    -   [toggleSound][6]
+-   [StarryNightGameScene][7]
+    -   [preload][8]
+    -   [create][9]
+    -   [updateScore][10]
+        -   [Parameters][11]
+    -   [placeClouds][12]
+        -   [Parameters][13]
+    -   [flap][14]
+    -   [getRightmostCloud][15]
+    -   [update][16]
+    -   [die][17]
+    -   [toggleSound][18]
+-   [SETTINGS][19]
+-   [SETTINGS][20]
+-   [StarryNightLoadingScene][21]
+    -   [preload][22]
+    -   [updateBar][23]
+        -   [Parameters][24]
+    -   [complete][25]
+-   [STARRY_NIGHT_SETTINGS][26]
+-   [StarryNightStartScene][27]
+    -   [preload][28]
+    -   [create][29]
+    -   [update][30]
+    -   [startGame][31]
+    -   [cameraGame][32]
+    -   [toggleSound][33]
+-   [gameConfig][34]
+-   [game][35]
+-   [PAINTING_OPTIONS][36]
+-   [ARTPAINTING][37]
+-   [vanGoghFaceFilter][38]
+-   [paintingOptionIdx][39]
+-   [setupButtons][40]
+-   [buildPaintingOption][41]
+-   [updatePaintingOption][42]
+-   [ready][43]
+-   [STATES][44]
+-   [compile_shader][45]
+    -   [Parameters][46]
+-   [draw_search][47]
+    -   [Parameters][48]
+-   [build_shaderProgram][49]
+    -   [Parameters][50]
+-   [VanGoghFaceFilter][51]
+    -   [Parameters][52]
+    -   [check_isLoaded][53]
+        -   [Parameters][54]
+    -   [main][55]
+    -   [start][56]
+    -   [update_artPainting][57]
+        -   [Parameters][58]
+    -   [create_textures][59]
+    -   [build_artPaintingMask][60]
         -   [Parameters][61]
-    -   [main][62]
-    -   [start][63]
-    -   [update_artPainting][64]
-        -   [Parameters][65]
-    -   [create_textures][66]
-    -   [build_artPaintingMask][67]
+    -   [build_shps][62]
+    -   [reset_toVideo][63]
+    -   [position_userCropCanvas][64]
+    -   [draw_render][65]
+        -   [Parameters][66]
+    -   [callbackTrack][67]
         -   [Parameters][68]
-    -   [build_shps][69]
-    -   [reset_toVideo][70]
-    -   [position_userCropCanvas][71]
-    -   [draw_render][72]
-        -   [Parameters][73]
-    -   [callbackTrack][74]
-        -   [Parameters][75]
-    -   [saveImage][76]
-        -   [Parameters][77]
--   [JEEFACEFILTERAPIGEN][78]
-
-## Phaser
-
-Starry Night Game JS: Game Over Scene
-
-**Meta**
-
--   **since**: 13 May 2020
--   **author**: Teki Chan
-
-## Phaser
-
-Starry Night Game JS: Game Content Scene
-
-**Meta**
-
--   **since**: 13 May 2020
--   **author**: Teki Chan
-
-## Phaser
-
-Starry Night Game JS: Loading Scene
-
-**Meta**
-
--   **since**: 13 May 2020
--   **author**: Teki Chan
-
-## Phaser
-
-Starry Night Game JS: Start Scene
-
-**Meta**
-
--   **since**: 13 May 2020
--   **author**: Teki Chan
-
-## Phaser
-
-Starry Night Game JS
-
-**Meta**
-
--   **since**: 13 May 2020
--   **author**: Teki Chan
+    -   [saveImage][69]
+        -   [Parameters][70]
+-   [JEEFACEFILTERAPI][71]
+-   [JEEFACEFILTERAPIGEN][72]
 
 ## StarryNightGameOverScene
 
 **Extends Phaser.Scene**
 
-The game over class of this game's scene
+Starry Night Game JS: Game Over Scene
+<br>The game over class of this game's scene
 
 **Meta**
 
+-   **since**: 13 May 2020
 -   **author**: Teki Chan
 
 ### preload
@@ -154,10 +105,12 @@ Toggle Sound on or off
 
 **Extends Phaser.Scene**
 
-The main class of this game's scene
+Starry Night Game JS: Game Content Scene
+<br>The main class of this game's scene
 
 **Meta**
 
+-   **since**: 13 May 2020
 -   **author**: Teki Chan
 
 ### preload
@@ -210,10 +163,12 @@ Face Filter Settings
 
 **Extends Phaser.Scene**
 
-Starry Night Loading Scene
+Starry Night Game JS: Loading Scene
+<br>Starry Night Loading Scene
 
 **Meta**
 
+-   **since**: 13 May 2020
 -   **author**: Teki Chan
 
 ### preload
@@ -243,10 +198,12 @@ Starry Night Shared Settings
 
 **Extends Phaser.Scene**
 
-The starting class of this game's scene
+Starry Night Game JS: Start Scene
+<br>The starting class of this game's scene
 
 **Meta**
 
+-   **since**: 13 May 2020
 -   **author**: Teki Chan
 
 ### preload
@@ -273,11 +230,7 @@ Phaser Game Config
 
 ## game
 
-Start the game
-
-## 
-
-Van Gogh Camera JS
+Starry Night Game JS
 
 **Meta**
 
@@ -314,34 +267,13 @@ Update Painting with the current option index
 
 ## ready
 
-Process when jQuery is ready
-
-## JEEFACEFILTERAPI
-
-Van Gogh Face Filter JS
+Van Gogh Camera JS
+<br>Process when jQuery is ready
 
 **Meta**
 
 -   **since**: 13 May 2020
 -   **author**: Teki Chan
-
-## JEEFACEFILTERAPI
-
-Jeeliz Face Filter - [https://github.com/jeeliz/jeelizFaceFilter][79]
-
-Copyright 2018 Jeeliz ( [https://jeeliz.com][80] )
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-[http://www.apache.org/licenses/LICENSE-2.0][81]
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
 
 ## STATES
 
@@ -382,11 +314,11 @@ helper function to build the shader program
 
 ## VanGoghFaceFilter
 
--   **See: [https://jeeliz.com/][82]
+-   **See: [https://jeeliz.com/][73]
     **
--   **See: [https://github.com/jeeliz/jeelizFaceFilter][79]
+-   **See: [https://github.com/jeeliz/jeelizFaceFilter][74]
     **
--   **See: [https://github.com/jeeliz/jeelizFaceFilter/tree/master/demos/faceReplacement/image][83]
+-   **See: [https://github.com/jeeliz/jeelizFaceFilter/tree/master/demos/faceReplacement/image][75]
     **
 
 Van Gogh Face Filter
@@ -399,6 +331,11 @@ Van Gogh Face Filter
 -   `artPainting` **any** Painting setting
 -   `doMartPaintingContainer` **any** Container ID of Painting
 -   `faceCanvasId` **any** Canvas ID of Face
+
+**Meta**
+
+-   **since**: 13 May 2020
+-   **author**: Teki Chan
 
 ### check_isLoaded
 
@@ -473,17 +410,17 @@ Save a final image
 
 -   `_event` **any** Event object
 
-## JEEFACEFILTERAPIGEN
+## JEEFACEFILTERAPI
 
-Jeeliz Face Filter - [https://github.com/jeeliz/jeelizFaceFilter][79]
+Jeeliz Face Filter - [https://github.com/jeeliz/jeelizFaceFilter][74]
 
-Copyright 2018 Jeeliz ( [https://jeeliz.com][80] )
+Copyright 2018 Jeeliz ( [https://jeeliz.com][76] )
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-[http://www.apache.org/licenses/LICENSE-2.0][81]
+[http://www.apache.org/licenses/LICENSE-2.0][77]
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -491,168 +428,174 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[1]: #phaser
+## JEEFACEFILTERAPIGEN
 
-[2]: #phaser-1
+Jeeliz Face Filter - [https://github.com/jeeliz/jeelizFaceFilter][74]
 
-[3]: #phaser-2
+Copyright 2018 Jeeliz ( [https://jeeliz.com][76] )
 
-[4]: #phaser-3
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-[5]: #phaser-4
+[http://www.apache.org/licenses/LICENSE-2.0][77]
 
-[6]: #starrynightgameoverscene
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
-[7]: #preload
+[1]: #starrynightgameoverscene
 
-[8]: #create
+[2]: #preload
 
-[9]: #update
+[3]: #create
 
-[10]: #resetgame
+[4]: #update
 
-[11]: #togglesound
+[5]: #resetgame
 
-[12]: #starrynightgamescene
+[6]: #togglesound
 
-[13]: #preload-1
+[7]: #starrynightgamescene
 
-[14]: #create-1
+[8]: #preload-1
 
-[15]: #updatescore
+[9]: #create-1
 
-[16]: #parameters
+[10]: #updatescore
 
-[17]: #placeclouds
+[11]: #parameters
 
-[18]: #parameters-1
+[12]: #placeclouds
 
-[19]: #flap
+[13]: #parameters-1
 
-[20]: #getrightmostcloud
+[14]: #flap
 
-[21]: #update-1
+[15]: #getrightmostcloud
 
-[22]: #die
+[16]: #update-1
 
-[23]: #togglesound-1
+[17]: #die
 
-[24]: #settings
+[18]: #togglesound-1
 
-[25]: #settings-1
+[19]: #settings
 
-[26]: #starrynightloadingscene
+[20]: #settings-1
 
-[27]: #preload-2
+[21]: #starrynightloadingscene
 
-[28]: #updatebar
+[22]: #preload-2
 
-[29]: #parameters-2
+[23]: #updatebar
 
-[30]: #complete
+[24]: #parameters-2
 
-[31]: #starry_night_settings
+[25]: #complete
 
-[32]: #starrynightstartscene
+[26]: #starry_night_settings
 
-[33]: #preload-3
+[27]: #starrynightstartscene
 
-[34]: #create-2
+[28]: #preload-3
 
-[35]: #update-2
+[29]: #create-2
 
-[36]: #startgame
+[30]: #update-2
 
-[37]: #cameragame
+[31]: #startgame
 
-[38]: #togglesound-2
+[32]: #cameragame
 
-[39]: #gameconfig
+[33]: #togglesound-2
 
-[40]: #game
+[34]: #gameconfig
 
-[41]: #painting_options
+[35]: #game
 
-[42]: #artpainting
+[36]: #painting_options
 
-[43]: #vangoghfacefilter
+[37]: #artpainting
 
-[44]: #paintingoptionidx
+[38]: #vangoghfacefilter
 
-[45]: #setupbuttons
+[39]: #paintingoptionidx
 
-[46]: #buildpaintingoption
+[40]: #setupbuttons
 
-[47]: #updatepaintingoption
+[41]: #buildpaintingoption
 
-[48]: #ready
+[42]: #updatepaintingoption
 
-[49]: #jeefacefilterapi
+[43]: #ready
 
-[50]: #jeefacefilterapi-1
+[44]: #states
 
-[51]: #states
+[45]: #compile_shader
 
-[52]: #compile_shader
+[46]: #parameters-3
 
-[53]: #parameters-3
+[47]: #draw_search
 
-[54]: #draw_search
+[48]: #parameters-4
 
-[55]: #parameters-4
+[49]: #build_shaderprogram
 
-[56]: #build_shaderprogram
+[50]: #parameters-5
 
-[57]: #parameters-5
+[51]: #vangoghfacefilter-1
 
-[58]: #vangoghfacefilter-1
+[52]: #parameters-6
 
-[59]: #parameters-6
+[53]: #check_isloaded
 
-[60]: #check_isloaded
+[54]: #parameters-7
 
-[61]: #parameters-7
+[55]: #main
 
-[62]: #main
+[56]: #start
 
-[63]: #start
+[57]: #update_artpainting
 
-[64]: #update_artpainting
+[58]: #parameters-8
 
-[65]: #parameters-8
+[59]: #create_textures
 
-[66]: #create_textures
+[60]: #build_artpaintingmask
 
-[67]: #build_artpaintingmask
+[61]: #parameters-9
 
-[68]: #parameters-9
+[62]: #build_shps
 
-[69]: #build_shps
+[63]: #reset_tovideo
 
-[70]: #reset_tovideo
+[64]: #position_usercropcanvas
 
-[71]: #position_usercropcanvas
+[65]: #draw_render
 
-[72]: #draw_render
+[66]: #parameters-10
 
-[73]: #parameters-10
+[67]: #callbacktrack
 
-[74]: #callbacktrack
+[68]: #parameters-11
 
-[75]: #parameters-11
+[69]: #saveimage
 
-[76]: #saveimage
+[70]: #parameters-12
 
-[77]: #parameters-12
+[71]: #jeefacefilterapi
 
-[78]: #jeefacefilterapigen
+[72]: #jeefacefilterapigen
 
-[79]: https://github.com/jeeliz/jeelizFaceFilter
+[73]: https://jeeliz.com/
 
-[80]: https://jeeliz.com
+[74]: https://github.com/jeeliz/jeelizFaceFilter
 
-[81]: http://www.apache.org/licenses/LICENSE-2.0
+[75]: https://github.com/jeeliz/jeelizFaceFilter/tree/master/demos/faceReplacement/image
 
-[82]: https://jeeliz.com/
+[76]: https://jeeliz.com
 
-[83]: https://github.com/jeeliz/jeelizFaceFilter/tree/master/demos/faceReplacement/image
+[77]: http://www.apache.org/licenses/LICENSE-2.0
