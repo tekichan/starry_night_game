@@ -1,8 +1,3 @@
-/**
- * Starry Night Game JS: Game Content Scene
- * @author  Teki Chan
- * @since   13 May 2020
- */
 import Phaser from 'phaser';
 
 import { STARRY_NIGHT_SETTINGS } from './StarryNightSettings';
@@ -16,9 +11,11 @@ import image_sound_off_button from '../images/sound_off_button.png';
 import audio_moonlight_p2 from '../audio/moonlight_part2.mp3';
 
 /**
- * The main class of this game's scene
+ * Starry Night Game JS: Game Content Scene
+ * <br>The main class of this game's scene
  * @extends Phaser.Scene
  * @author  Teki Chan
+ * @since   13 May 2020
  */
 export default class StarryNightGameScene extends Phaser.Scene{
     /**

@@ -1,9 +1,3 @@
-/**
- * Van Gogh Face Filter JS
- * @author  Teki Chan
- * @since   13 May 2020
- */
-
 import JEEFACEFILTERAPI from './vendors/jeelizFaceFilter/dist/jeelizFaceFilterES6';
 import NNC_JSON from './vendors/jeelizFaceFilter/dist/NNC.json';
 
@@ -84,6 +78,8 @@ const build_shaderProgram = (GL, shaderVertexSource, shaderFragmentSource, id) =
  * Van Gogh Face Filter
  * <br>Logics for processing human and painting faces.
  * <br>Acknowledgement of Jeeliz Face Filter Demo
+ * @author  Teki Chan
+ * @since   13 May 2020
  * @see https://jeeliz.com/
  * @see https://github.com/jeeliz/jeelizFaceFilter
  * @see https://github.com/jeeliz/jeelizFaceFilter/tree/master/demos/faceReplacement/image

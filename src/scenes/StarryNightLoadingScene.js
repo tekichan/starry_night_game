@@ -1,8 +1,3 @@
-/**
- * Starry Night Game JS: Loading Scene
- * @author  Teki Chan
- * @since   13 May 2020
- */
 import Phaser from 'phaser';
 
 import image_night_bg from '../images/starry_night.png';
@@ -37,8 +32,10 @@ const SETTINGS = {
 }
 
 /**
- * Starry Night Loading Scene
+ * Starry Night Game JS: Loading Scene
+ * <br>Starry Night Loading Scene
  * @author  Teki Chan
+ * @since   13 May 2020
  * @extends Phaser.Scene
  */
 export default class StarryNightLoadingScene extends Phaser.Scene{

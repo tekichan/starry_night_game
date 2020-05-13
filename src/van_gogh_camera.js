@@ -1,8 +1,3 @@
-/**
- * Van Gogh Camera JS
- * @author  Teki Chan
- * @since   13 May 2020
- */
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as $ from 'jquery';
@@ -143,7 +138,10 @@ function updatePaintingOption() {
 }
 
 /**
- * Process when jQuery is ready
+ * Van Gogh Camera JS
+ * <br>Process when jQuery is ready
+ * @author  Teki Chan
+ * @since   13 May 2020
  */
 $( document ).ready(function() {
     console.log('jQuery is ready');

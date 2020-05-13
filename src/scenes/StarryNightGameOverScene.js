@@ -1,8 +1,3 @@
-/**
- * Starry Night Game JS: Game Over Scene
- * @author  Teki Chan
- * @since   13 May 2020
- */
 import Phaser from 'phaser';
 
 import { STARRY_NIGHT_SETTINGS } from './StarryNightSettings';
@@ -14,9 +9,11 @@ import image_sound_off_button from '../images/sound_off_button.png';
 import audio_moonlight_p3 from '../audio/moonlight_part3.mp3';
 
 /**
- * The game over class of this game's scene
+ * Starry Night Game JS: Game Over Scene
+ * <br>The game over class of this game's scene
  * @extends Phaser.Scene
  * @author  Teki Chan
+ * @since   13 May 2020
  */
 export default class StarryNightGameOverScene extends Phaser.Scene{
     /**

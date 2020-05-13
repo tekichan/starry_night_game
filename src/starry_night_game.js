@@ -1,8 +1,3 @@
-/**
- * Starry Night Game JS
- * @author  Teki Chan
- * @since   13 May 2020
- */
 import Phaser from 'phaser';
 import StarryNightLoadingScene from './scenes/StarryNightLoadingScene';
 import StarryNightStartScene from './scenes/StarryNightStartScene';
@@ -36,6 +31,8 @@ const gameConfig = {
 }
 
 /**
- * Start the game
+ * Starry Night Game JS
+ * @author  Teki Chan
+ * @since   13 May 2020
  */
 const game = new Phaser.Game(gameConfig);
