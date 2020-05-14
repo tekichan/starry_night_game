@@ -43,6 +43,16 @@ module.exports = {
     }),
     new FaviconsWebpackPlugin({
       logo: './src/icons/favicon.png'
+      , outputPath: './assets/'
+      , prefix: '/starry_night_game/assets/'
+      , favicons: {
+        appName: 'Starry Night Game',
+        appShortName: 'Starry Night Game',
+        appDescription: 'A fun game with face recognition to commemorate Vincent van Gogh',
+        developerName: 'Teki Chan',
+        developerURL: 'https://github.com/tekichan',          
+        start_url: '/starry_night_game/'
+      }
     }),
     new WorkboxPlugin.GenerateSW({
       // these options encourage the ServiceWorkers to get in there fast
