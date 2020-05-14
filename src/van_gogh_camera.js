@@ -14,6 +14,9 @@ import image_camera_button from './images/camera_button.png';
 import VanGoghFaceFilter from './VanGoghFaceFilter';
 import './css/van_gogh_camera.css';
 
+import { start_pwa_worker } from './pwa_worker';
+start_pwa_worker();
+
 /**
  * Painting Options
  */

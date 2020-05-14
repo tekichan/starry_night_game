@@ -3,8 +3,10 @@ import StarryNightLoadingScene from './scenes/StarryNightLoadingScene';
 import StarryNightStartScene from './scenes/StarryNightStartScene';
 import StarryNightGameScene from './scenes/StarryNightGameScene';
 import StarryNightGameOverScene from './scenes/StarryNightGameOverScene';
-
 import './css/starry_night_game.css';
+
+import { start_pwa_worker } from './pwa_worker';
+start_pwa_worker();
 
 /**
  * Phaser Game Config

@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -31,6 +32,9 @@ module.exports = {
       , template: 'src/camera_template.html'   
       , chunks: ['camera']
       , title: "Van Gogh's Camera"
+      , meta: {
+          'viewport': 'width=device-width, initial-scale=0.5, shrink-to-fit=no, user-scalable=no'
+      }
       , minify: {
         removeComments: true,
         collapseWhitespace: true
@@ -39,6 +43,12 @@ module.exports = {
     }),
     new FaviconsWebpackPlugin({
       logo: './src/icons/favicon.png'
+    }),
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true,
     })
   ],
   module: {
