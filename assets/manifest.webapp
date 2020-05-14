@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "starry_night_game",
+  "description": "Starry Night",
+  "icons": {
+    "60": "/starry_night_game/assets/firefox_app_60x60.png",
+    "128": "/starry_night_game/assets/firefox_app_128x128.png",
+    "512": "/starry_night_game/assets/firefox_app_512x512.png"
+  },
+  "developer": {
+    "name": "Teki Chan",
+    "url": null
+  }
+}
