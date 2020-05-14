@@ -1,7 +1,7 @@
 {
-  "name": "starry_night_game",
-  "short_name": "starry_night_game",
-  "description": "Starry Night",
+  "name": "Starry Night Game",
+  "short_name": "Starry Night Game",
+  "description": "A fun game with face recognition to commemorate Vincent van Gogh",
   "dir": "auto",
   "lang": "en-US",
   "display": "standalone",

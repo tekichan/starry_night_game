@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "name": "starry_night_game",
-  "description": "Starry Night",
+  "name": "Starry Night Game",
+  "description": "A fun game with face recognition to commemorate Vincent van Gogh",
   "icons": {
     "60": "/starry_night_game/assets/firefox_app_60x60.png",
     "128": "/starry_night_game/assets/firefox_app_128x128.png",
@@ -9,6 +9,6 @@
   },
   "developer": {
     "name": "Teki Chan",
-    "url": null
+    "url": "https://github.com/tekichan"
   }
 }
